@@ -42,7 +42,7 @@ int main(void)
 		if (bytesRead <= 0)
 			break;
 
-		if (strcmp(command, "exit") == 0 || strcmp(command, "quit") == 0)
+		if (_strcmp(command, "exit") == 0 || _strcmp(command, "quit") == 0)
 			break;
 
 		executeCommand(command);

@@ -15,5 +15,7 @@ int execute_command(char **args);
 void executeCommand(const char *command);
 void myEnviron(char **envp);
 void exitShell(void);
+int _strcmp(const char *s1, const char *s2);
+int _strlen(char *str);
 
 #endif /* MAIN_H */

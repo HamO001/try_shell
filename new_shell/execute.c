@@ -9,7 +9,7 @@ void executeCommand(const char *command)
     pid_t pid;
     int status;
 
-    if (strcmp(command, "exit") == 0)
+    if (_strcmp(command, "exit") == 0)
     {
         exitShell();
     }
@@ -40,7 +40,7 @@ void executeCommand(const char *command)
 
         for (j = 0; j < i; j++)
         {
-            write(STDOUT_FILENO, args[j], strlen(args[j]));
+            write(STDOUT_FILENO, args[j], _strlen(args[j]));
             write(STDOUT_FILENO, " ", 1);
         }
 
