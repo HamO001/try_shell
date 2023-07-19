@@ -22,7 +22,7 @@ void executeCommand(const char *command)
 	{
 		char *args[4];
 		int i = 0;
-		int j = 0;
+		/*int j = 0;*/
 
 		args[0] = "/bin/sh";
 		args[1] = "-c";
@@ -31,13 +31,13 @@ void executeCommand(const char *command)
 
 		while (args[i] != NULL)
 		i++;
-
-		for (j = 0; j < i; j++)
-		{
-			write(STDOUT_FILENO, args[j], _strlen(args[j]));
-			write(STDOUT_FILENO, " ", 1);
+		/**
+		* for (j = 0; j < i; j++)
+		* {
+		*	write(STDOUT_FILENO, args[j], _strlen(args[j]));
+		*	write(STDOUT_FILENO, " ", 1);
 		}
-
+		*/
 		write(STDOUT_FILENO, " ", 1);
 
 		execvp(args[0], args);
