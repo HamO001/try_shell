@@ -17,10 +17,11 @@
 ssize_t readCommand(char *buffer, size_t size)
 {
 	ssize_t bytesRead;
+
 	bytesRead = read(STDIN_FILENO, buffer, size);
 	if (bytesRead > 0 && buffer[bytesRead - 1] == '\n')
 		buffer[bytesRead - 1] = '\0';
-	return bytesRead;
+	return (bytesRead);
 }
 
 /**
@@ -48,5 +49,5 @@ int main(void)
 		executeCommand(command);
 	}
 
-	return 0;
+	return (0);
 }
