@@ -7,7 +7,7 @@
  * myEnviron - print current environment
  * @envp: pointer to environment variable array
  */
-void myEnviron(char **envp)
+void _myEnviron(char **envp)
 {
 	char **env = envp;
 
