@@ -50,6 +50,14 @@ int main(void)
 			_clear();
 			continue;
 		}
+		if (_strcmp(command, "env") == 0)
+		{
+			extern char **environ;
+
+			_myEnviron(environ);
+			continue;
+		}
+
 
 		executeCommand(command);
 	}

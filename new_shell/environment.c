@@ -9,15 +9,19 @@
  */
 void _myEnviron(char **envp)
 {
-	char **env = envp;
+	int i = 0;
 
-	while (*env != NULL)
+	while (envp[i])
 	{
-		/*size_t len = strlen(*env);*/
+		int j = 0;
 
-		write(STDOUT_FILENO, *env, _strlen(*env));
-		write(STDOUT_FILENO, "\n", 1);
-		env++;
+		while (envp[i][j])
+		{
+			j++;
+		}
+		write(1, envp[i], j);
+		write(1, "\n", 1);
+		i++;
 	}
 }
 

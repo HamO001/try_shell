@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * executeCommand - executes a command
- * @command: command passed
+ * executeCommand - executes a command passed to the function using /bin/sh
+ * @command: command passed to this function
  */
 void executeCommand(char *command)
 {
@@ -10,11 +10,6 @@ void executeCommand(char *command)
 	int status;
 	char *envp[] = {NULL};
 	char *args[4];
-
-	if (_strcmp(command, "exit") == 0)
-		exitShell();
-
-	_myEnviron(envp);
 
 	pid = fork();
 
