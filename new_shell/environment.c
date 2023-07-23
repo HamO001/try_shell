@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 /**
- * myEnviron - print current environment
+ * _myEnviron - print current environment
  * @envp: pointer to environment variable array
  */
 void _myEnviron(char **envp)
@@ -13,9 +13,9 @@ void _myEnviron(char **envp)
 
 	while (*env != NULL)
 	{
-		size_t len = strlen(*env);
+		/*size_t len = strlen(*env);*/
 
-		write(STDOUT_FILENO, *env, len);
+		write(STDOUT_FILENO, *env, _strlen(*env));
 		write(STDOUT_FILENO, "\n", 1);
 		env++;
 	}

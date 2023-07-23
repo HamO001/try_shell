@@ -13,9 +13,10 @@ void handlePath(char *cmd);
 void print_error_message(const char *command);
 int execute_command(char **args);
 void executeCommand(char *command);
-void myEnviron(char **envp);
+void _myEnviron(char **envp);
 void exitShell(void);
 int _strcmp(const char *s1, const char *s2);
 int _strlen(char *str);
+void _clear();
 
 #endif /* MAIN_H */

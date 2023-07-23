@@ -45,6 +45,11 @@ int main(void)
 
 		if (_strcmp(command, "exit") == 0 || _strcmp(command, "quit") == 0)
 			break;
+		if (_strcmp(command, "clear") == 0)
+		{
+			_clear();
+			continue;
+		}
 
 		executeCommand(command);
 	}
