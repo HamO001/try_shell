@@ -18,5 +18,7 @@ void exitShell(void);
 int _strcmp(const char *s1, const char *s2);
 int _strlen(char *str);
 void _clear();
+extern char **environ;
+void executeEnv(void);
 
 #endif /* MAIN_H */
