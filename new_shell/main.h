@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <fcntl.h>
+#define BUFFER_SIZE 1024
 
 void handlePath(char *cmd);
 void print_error_message(const char *command);
@@ -18,5 +19,6 @@ void exitShell(void);
 int _strcmp(const char *s1, const char *s2);
 int _strlen(char *str);
 void _clear();
+void _changeDir(char *path);
 
 #endif /* MAIN_H */

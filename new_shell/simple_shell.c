@@ -57,6 +57,12 @@ int main(void)
 			_myEnviron(environ);
 			continue;
 		}
+		if (_strcmp(command, "cd") == 0)
+		{
+			char *path = strtok(NULL, "\n");
+			_changeDir(path);
+			continue;
+		}
 
 
 		executeCommand(command);
