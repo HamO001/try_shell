@@ -30,8 +30,8 @@ ssize_t readCommand(char *buffer, size_t size)
  */
 int main(void)
 {
-	char command[BUFFER_SIZE];
-	ssize_t bytesRead;
+	char input[BUFFER_SIZE];
+	ssize_t inputSize;
 	int interactive = isatty(STDIN_FILENO);
 
 	while (1)
@@ -39,24 +39,24 @@ int main(void)
 		if (interactive)
 			write(STDOUT_FILENO, PROMPT, sizeof(PROMPT) - 1);
 
-		bytesRead = readCommand(command, sizeof(command));
-		if (bytesRead <= 0)
+		inputSize = readCommand(input, sizeof(input));
+		if (inputSize <= 0)
 			break;
 
-		if (_strcmp(command, "exit") == 0 || _strcmp(command, "quit") == 0)
+		if (_strcmp(input, "exit") == 0 || _strcmp(input, "quit") == 0)
 			break;
 
-		if (_strcmp(command, "clear") == 0)
+		if (_strcmp(input, "clear") == 0)
 		{
 			_clear();
 			continue;
 		}
-		if (_strcmp(command, "env") == 0)
+		if (_strcmp(input, "env") == 0)
 		{
 			_myEnviron(environ);
 			continue;
 		}
-		if (_strcmp(command, "cd") == 0)
+		if (_strcmp(input, "cd") == 0)
 		{
 			char *path = strtok(NULL, "\n");
 
@@ -65,7 +65,7 @@ int main(void)
 		}
 
 
-		_executecmd(command);
+		_executecmd(input);
 	}
 
 	return (0);
