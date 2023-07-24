@@ -19,6 +19,11 @@ void exitShell(void);
 int _strcmp(const char *s1, const char *s2);
 int _strlen(char *str);
 void _clear();
+<<<<<<< HEAD
 void _changeDir(char *path);
+=======
+extern char **environ;
+void executeEnv(void);
+>>>>>>> 3f71e445227d2c668ed8627c601a444c33d67c4b
 
 #endif /* MAIN_H */

@@ -52,9 +52,7 @@ int main(void)
 		}
 		if (_strcmp(command, "env") == 0)
 		{
-			extern char **environ;
-
-			_myEnviron(environ);
+			executeEnv();
 			continue;
 		}
 		if (_strcmp(command, "cd") == 0)
