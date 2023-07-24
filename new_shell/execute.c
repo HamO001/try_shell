@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * executeCommand - executes a command passed to the function using /bin/sh
+ * _executecmd - executes a command passed to the function using /bin/sh
  * @command: command passed to this function
  */
-void executeCommand(char *command)
+void _executecmd(char *command)
 {
 	pid_t pid;
 	int status;

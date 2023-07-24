@@ -45,6 +45,7 @@ int main(void)
 
 		if (_strcmp(command, "exit") == 0 || _strcmp(command, "quit") == 0)
 			break;
+
 		if (_strcmp(command, "clear") == 0)
 		{
 			_clear();
@@ -52,18 +53,19 @@ int main(void)
 		}
 		if (_strcmp(command, "env") == 0)
 		{
-			executeEnv();
+			_myEnviron(environ);
 			continue;
 		}
 		if (_strcmp(command, "cd") == 0)
 		{
 			char *path = strtok(NULL, "\n");
+
 			_changeDir(path);
 			continue;
 		}
 
 
-		executeCommand(command);
+		_executecmd(command);
 	}
 
 	return (0);
