@@ -31,16 +31,16 @@ ssize_t readCommand(char *buffer, size_t size)
 int main(void)
 {
 	char command[BUFFER_SIZE];
-	ssize_t bytesRead;
-	int interactive = isatty(STDIN_FILENO);
+	ssize_t bytesize;
+	int _isInteractive = isatty(STDIN_FILENO);
 
 	while (1)
 	{
-		if (interactive)
+		if (_isInteractive)
 			write(STDOUT_FILENO, PROMPT, sizeof(PROMPT) - 1);
 
-		bytesRead = readCommand(command, sizeof(command));
-		if (bytesRead <= 0)
+		bytesize = readCommand(command, sizeof(command));
+		if (bytesize <= 0)
 			break;
 
 		if (_strcmp(command, "exit") == 0 || _strcmp(command, "quit") == 0)
@@ -60,9 +60,49 @@ int main(void)
 		{
 			char *path = strtok(NULL, "\n");
 
-			_changeDir(path);
+			if (path == NULL || _strcmp(path, ".") == 0)
+				/*change to current dir*/
+			{
+				if (chdir(".") != 0)
+				{
+					perror("chdir");
+				}
+			}
+			else
+			{
+				DIR *dir = opendir(path);
+				/*change to specified dir*/
+				if (dir == NULL)
+				{
+					perror("opendir");
+				}
+				else
+				{
+					if (chdir(path) != 0)
+					{
+						perror("chdir");
+					}
+					closedir(dir);
+				}
+			}
+			/*char cwd[PATH_MAX];*/
+
+			/*if (getcwd(cwd, PATH_MAX) != NULL)
+				printf("Current working dir is %s\n", cwd);
+
+			else
+				perror("getcwd");*/
+
+
+			/*_changeDir(".");*/
 			continue;
 		}
+		/*if (_strcmp(command , "echo $PATH") == 0)
+		{
+			char *path = getenv("PATH");
+
+			printf("%s\n", path);
+		}*/
 
 
 		_executecmd(command);
