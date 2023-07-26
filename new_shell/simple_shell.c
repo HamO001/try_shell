@@ -45,13 +45,13 @@ int main(void)
 		if (_isInteractive)
 			write(STDOUT_FILENO, PROMPT, sizeof(PROMPT) - 1);
 
-<<<<<<< HEAD
+
 		bytesize = readCommand(command, sizeof(command));
 		if (bytesize <= 0)
-=======
+
 		inputSize = readCommand(input, sizeof(input));
 		if (inputSize <= 0)
->>>>>>> fbd2e3dca344b4fba8910a3197d44b7fc7b34e20
+
 			break;
 
 		if (_strcmp(input, "exit") == 0 || _strcmp(input, "quit") == 0)
